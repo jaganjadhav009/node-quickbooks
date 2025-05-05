@@ -92,7 +92,7 @@ function QuickBooks(consumerKey, consumerSecret, token, tokenSecret, realmId, us
   this.useSandbox = eval(prefix + 'useSandbox');
   this.debug = eval(prefix + 'debug');
   this.endpoint = this.useSandbox ? QuickBooks.V3_ENDPOINT_BASE_URL : QuickBooks.V3_ENDPOINT_BASE_URL.replace('sandbox-', '');
-  this.minorversion = eval(prefix + 'minorversion') || env.QB_minorVersion||75;
+  this.minorversion = eval(prefix + 'minorversion') || process.env.QB_MINOR_VERSION||75;
   this.oauthversion = oauthversion || '1.0a';
   this.refreshToken = refreshToken || null;
   if (!tokenSecret && this.oauthversion !== '2.0') throw new Error('tokenSecret not defined');
